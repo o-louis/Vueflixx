@@ -1,12 +1,12 @@
 <template>
     <header>
         <div class="featured">
-          <h2>{{ featured.title }}</h2>
-          <p>{{ featured.overview }}</p>
-          <p>{{ featured.release_date}}</p>
-          <img :src="image(featured.backdrop_path)" :alt="featured.title">
-          <Button :type="btnType" :favorite="favorite" />
-          <Button type="trailer" />
+          <div class="featured__infos">
+            <Button type="trailer" />
+          </div>
+          <div class="featured__background">
+            <img :src="image(featured.backdrop_path)" :alt="featured.title">
+          </div>
         </div>
     </header>
 </template>

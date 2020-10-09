@@ -1,6 +1,5 @@
 <template>
     <main>
-      <h1>Home</h1>
       <Featured :featured="featured" :toggleFavorite="toggleFavorite" />
       <Search @getResult="getResult" />
       <MoviesList

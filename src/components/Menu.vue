@@ -16,23 +16,17 @@
 
 <script>
 export default {
-  name: 'Menu'
+  name: 'Menu',
+  mounted () {
+    document.addEventListener('scroll', () => {
+      if (window.scrollY === 0) {
+        document.querySelector('nav').classList.remove('scrolling')
+      } else {
+        document.querySelector('nav').classList.add('scrolling')
+      }
+    })
+  }
 }
 </script>
 
-<style lang="scss" scoped>
-nav {
-    padding: 20px 0;
-  .nav {
-      margin: 0 auto;
-      max-width: 1200px;
-      width: 90%;
-      display: flex;
-      justify-content: space-between;
-
-      .logo {
-          font-size: 4rem;
-      }
-  }
-}
-</style>
+<style lang="scss"></style>

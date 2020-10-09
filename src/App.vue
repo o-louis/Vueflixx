@@ -53,10 +53,4 @@ export default {
     text-decoration: none;
     color: white;
   }
-
-  main {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
 </style>
