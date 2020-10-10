@@ -42,4 +42,9 @@ export default {
     // height: 100%;
     object-fit: cover;
   }
+
+  body {
+    background-color: black;
+    color: white;
+  }
 </style>

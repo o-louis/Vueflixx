@@ -1,5 +1,6 @@
 <template>
-    <button v-if="favorite" @click='favorite'>
+    <button v-if="favorite" @click='favorite' :class="{ fav: type === 'addFavorite' }">
+      <font-awesome-icon :icon="['far', 'heart']" v-if="type === 'addFavorite'"/>
         {{ text }}
     </button>
     <button v-else>
@@ -48,4 +49,18 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+  $red: #B71C1C;
+  button {
+    border: none;
+    background-color: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    background: $red;
+    color: white;
+    border-radius: 20px;
+  }
+  .fav {
+    background: #19181A;
+  }
+</style>

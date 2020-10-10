@@ -14,7 +14,7 @@
 
       <!--  MOVIE DETAIL -->
       <MovieDetail
-        v-if="isDetailShowed"
+        v-show="isDetailShowed"
         :detail="detail.data"
         :hideDetail="hideDetail"
         :toggleFavorite="toggleFavorite" />
@@ -64,6 +64,7 @@ export default {
       this.isDetailShowed = true
     },
     hideDetail () {
+      this.detail = { id: '', data: {} }
       this.isDetailShowed = false
     },
     toggleFavorite (item) {
@@ -101,4 +102,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+  main {
+    position: relative;
+  }
+</style>

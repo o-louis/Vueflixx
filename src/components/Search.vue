@@ -25,4 +25,17 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+  form {
+    padding: 30px 0px 60px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1.6rem;
+    }
+  }
+</style>

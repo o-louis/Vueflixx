@@ -38,6 +38,7 @@ export default {
     padding: 10px;
     position: fixed;
     width: 100%;
+    z-index: 10;
   }
 
   .nav-wrapper {

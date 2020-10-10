@@ -43,7 +43,7 @@ export default {
       const backgroundURL = this.image(this.featured.backdrop_path)
       return {
         backgroundImage:
-        `linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1) ),
+        `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1) ),
         url(${backgroundURL})`
       }
     },
@@ -84,7 +84,7 @@ export default {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 
   .featured__title {

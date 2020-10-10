@@ -3,12 +3,13 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCircle, faPlay } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faPlay, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import routes from './routes/routes.js'
 
-library.add(faCircle, faPlay)
+library.add(faCircle, faPlay, faHeart, faTimes)
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
