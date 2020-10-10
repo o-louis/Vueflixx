@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <div class="nav">
+        <div class="nav-wrapper">
             <div class="logo">
                 <router-link :to="{ name: 'Home' }">vFlix</router-link>
             </div>
@@ -29,4 +29,40 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+  $red: #B71C1C;
+  $white: #fff;
+
+  nav {
+    // background: black;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+  }
+
+  .nav-wrapper {
+    width: 90;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-wrapper .logo {
+    a {
+      font-size: 3rem;
+      color: $red;
+    }
+  }
+
+  .nav-wrapper .nav-list {
+    display: flex;
+    li {
+      font-size: 1.8rem;
+      a {
+        color: $white;
+      }
+    }
+  }
+</style>

@@ -1,11 +1,18 @@
 <template>
     <main>
+      <!-- HEADER -->
       <Featured :featured="featured" :toggleFavorite="toggleFavorite" />
+
+      <!-- SEARCH FORM -->
       <Search @getResult="getResult" />
+
+      <!-- LIST OF THE MOVIES -->
       <MoviesList
         :title="title"
         :data="dataMovies"
         :showDetail="showDetail" />
+
+      <!--  MOVIE DETAIL -->
       <MovieDetail
         v-if="isDetailShowed"
         :detail="detail.data"
