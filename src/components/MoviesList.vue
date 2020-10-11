@@ -76,6 +76,7 @@ export default {
       display: block;
       top: 0;
       background-color: rgba(65, 184,131 , 0.2);
+      transition: background-color 0.3s ease;
     }
   }
 
