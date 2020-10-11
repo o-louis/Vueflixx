@@ -24,5 +24,11 @@ export default {
     const response = await fetch(SEARCH)
     const data = await response.json()
     return data
+  },
+  async fetchVideo (id) {
+    const VIDEO_QUERY = `https://api.themoviedb.org/3/movie/${id}/videos?${API_KEY}`
+    const response = await fetch(VIDEO_QUERY)
+    const data = await response.json()
+    return data
   }
 }

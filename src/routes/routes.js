@@ -1,11 +1,9 @@
 import Home from '../views/Home'
-import Favorites from '../views/Favorites'
-import Categories from '../views/Categories'
+import Watchlist from '../views/Watchlist'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
-  { path: '/favorites', name: 'Favorites', component: Favorites },
-  { path: '/categories', name: 'Categories', component: Categories },
+  { path: '/watchlist', name: 'Watchlist', component: Watchlist },
   { path: '*', redirect: '/' }
 ]
 

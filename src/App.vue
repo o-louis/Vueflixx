@@ -7,7 +7,7 @@
 
 <script>
 import Menu from './components/Menu'
-import Favorite from './util/LocalStorage'
+import Watchlist from './util/LocalStorage'
 
 export default {
   name: 'App',
@@ -15,7 +15,7 @@ export default {
     Menu
   },
   mounted () {
-    Favorite.getLocalStorage()
+    Watchlist.getLocalStorage()
   }
 }
 </script>
@@ -27,7 +27,7 @@ export default {
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif  ;
+    font-family: 'Nunito Sans', sans-serif;
   }
 
   html {
@@ -39,12 +39,15 @@ export default {
     width: 100%;
     max-width: 100%;
     height: auto;
-    // height: 100%;
     object-fit: cover;
   }
 
   body {
     background-color: black;
     color: white;
+
+    background-color:black;
+    background-image: #171717;
+    color: black;
   }
 </style>

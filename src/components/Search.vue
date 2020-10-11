@@ -29,13 +29,24 @@ export default {
   form {
     padding: 30px 0px 60px;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
 
     input {
       width: 100%;
       padding: 10px;
-      font-size: 1.6rem;
+      font-size: clamp(1.6rem, 2vw, 1.9rem);
+      background-color: #F7F8FB;
+      color: #B0B4BF;
+      border-radius: 5px;
+      border: none;
+
+      @media (min-width: 576px) {
+        width: 400px;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      }
     }
   }
 </style>

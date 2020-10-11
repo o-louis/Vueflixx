@@ -1,6 +1,5 @@
 <template>
-    <main>
-        <h1>Favorites</h1>
+    <main class="watchlist">
         <MoviesList
           :title="title"
           :data="data"
@@ -9,7 +8,7 @@
           v-if="isDetailShowed && detail.data"
           :detail="detail.data"
           :hideDetail="hideDetail"
-          :toggleFavorite="toggleFavorite" />
+          :toggleWatchlist="toggleWatchlist" />
     </main>
 </template>
 
@@ -17,25 +16,31 @@
 import API from '../api/index'
 import MoviesList from '../components/MoviesList'
 import MovieDetail from '../components/MovieDetail'
-import Favorite from '../util/LocalStorage'
+import Watchlist from '../util/LocalStorage'
 
 export default {
-  name: 'Favorites',
+  name: 'Watchlist',
   components: {
     MoviesList,
     MovieDetail
   },
   data () {
     return {
-      title: 'Your Favorites List',
+      title: 'Your Watchlist List',
       isDetailShowed: false,
       data: [],
       detail: { id: '', data: {} }
     }
   },
   created () {
-    Favorite.getLocalStorage()
-    this.data = Favorite.getFavorite()
+    Watchlist.getLocalStorage()
+    this.data = Watchlist.getWatchlist()
+  },
+  mounted () {
+    document.querySelector('nav').classList.add('backgroundNav')
+  },
+  destroyed () {
+    document.querySelector('nav').classList.remove('backgroundNav')
   },
   methods: {
     showDetail (id) {
@@ -43,11 +48,12 @@ export default {
       this.isDetailShowed = true
     },
     hideDetail () {
+      this.detail = { id: '', data: {} }
       this.isDetailShowed = false
     },
-    toggleFavorite (item) {
-      Favorite.toggle(item)
-      this.data = Favorite.getFavorite()
+    toggleWatchlist (item) {
+      Watchlist.toggle(item)
+      this.data = Watchlist.getWatchlist()
       this.hideDetail()
     }
   },
@@ -64,4 +70,16 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+  .watchlist {
+    .movies-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px 10px;
+
+      @media (min-width: 576px) {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 160px));
+      }
+    }
+  }
+</style>

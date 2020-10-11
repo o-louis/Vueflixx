@@ -5,32 +5,32 @@
             <h2 class="featured__title">{{ featured.title }}</h2>
             <div class="featured__extra">
               <p class="featured__year">{{ getReleaseYear }}</p>
-              <button><span>Trailer</span><font-awesome-icon icon="play"/></button>
+              <button @click="showDetail(featured.id)">
+                <span>
+                  Read more
+                </span>
+                </button>
             </div>
-            <Button type="trailer" v-show="false"/>
           </div>
         </div>
     </header>
 </template>
 
 <script>
-import Button from '../components/Button'
-import Favorite from '../util/LocalStorage'
+import Watchlist from '../util/LocalStorage'
 
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280'
 
 export default {
   name: 'Featured',
-  components: {
-    Button
-  },
   props: {
     featured: Object,
-    toggleFavorite: Function
+    showDetail: Function,
+    toggleWatchlist: Function
   },
   data () {
     return {
-      btnType: 'addFavorite'
+      btnType: 'addWatchlist'
     }
   },
   watch: {
@@ -43,7 +43,7 @@ export default {
       const backgroundURL = this.image(this.featured.backdrop_path)
       return {
         backgroundImage:
-        `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1) ),
+        `linear-gradient( rgba(65, 184,131 , 0.3), rgba(0, 0, 0, 0) ),
         url(${backgroundURL})`
       }
     },
@@ -55,12 +55,12 @@ export default {
     image (url) {
       return `${IMG_BASE_URL}${url}`
     },
-    favorite () {
-      Favorite.toggle(this.featured)
+    watchlist () {
+      Watchlist.toggle(this.featured)
       this.updateBtnType()
     },
     updateBtnType () {
-      this.btnType = (Favorite.findMovie(this.featured.id) ? 'removeFavorite' : 'addFavorite')
+      this.btnType = (Watchlist.findMovie(this.featured.id) ? 'removeWatchlist' : 'addWatchlist')
     }
   }
 }
@@ -72,46 +72,56 @@ export default {
   .featured {
     width: 100%;
     height: 400px;
+    max-width: 1100px;
+    margin: 0 auto;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: top center;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    @media (min-width: 576px) {
+      background-position: top;
+      height: 500px;
+    }
   }
 
   .featured__infos {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     margin-bottom: 30px;
   }
 
   .featured__title {
-    color: $white;
+    color: white;
     text-transform: uppercase;
-    font-size: 2.2rem;
+    font-size: clamp(2.3rem, 2vw, 4rem);
   }
 
   .featured__extra  {
     display: flex;
     flex-direction: column;
-    color:$white;
-    font-size: 1.5rem;
+    color:white;
+    font-size: clamp(1.5rem, 2vw, 2rem);
     margin-top: 10px;
     button {
       background: transparent;
-      border: 1px solid $white;
-      color: $white;
-      padding: 5px 10px;
+      border: 1px solid white;
+      color: white;
+      padding: 10px 20px;
       text-transform: uppercase;
       margin-left: auto;
       display: flex;
       align-items: center;
-      font-size: 1.4rem;
-      svg {
-        font-size: 0.8rem;
-        margin-left: 4px;
+      font-size: clamp(1.4rem, 2vw, 1.6rem);
+      font-weight: 700;
+      transition: transform 0.3s ease;
+      &:hover {
+        background-color: white;
+        border-color: transparent;
+        background: #41B883;
+        transform: scale(1.1);
       }
     }
   }

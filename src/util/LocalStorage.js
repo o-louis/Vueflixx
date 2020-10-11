@@ -20,7 +20,7 @@ export default {
     return storage.filter(item => item.id !== id)
   },
   getLocalStorage () {
-    const localstorage = localStorage.getItem('favorites')
+    const localstorage = localStorage.getItem('watchlist')
     if (localstorage) {
       storage = JSON.parse(localstorage).slice()
     } else {
@@ -28,9 +28,9 @@ export default {
     }
   },
   updateLocalStorage () {
-    localStorage.setItem('favorites', JSON.stringify(storage))
+    localStorage.setItem('watchlist', JSON.stringify(storage))
   },
-  getFavorite () {
+  getWatchlist () {
     return storage
   }
 }

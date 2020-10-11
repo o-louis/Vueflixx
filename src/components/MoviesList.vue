@@ -29,26 +29,63 @@ export default {
 <style lang="scss">
   .movies {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     margin-bottom: 30px;
   }
 
   .movies__title {
-    font-size: 2.25rem;
+    font-size: clamp(2.25rem, 2vw, 3rem);
     margin-bottom: 20px;
+    color: white;
+    &:before {
+      content: "";
+      width: 5px;
+      height: min(25px, 20px);
+      display: inline-block;
+      background: #41B883;
+      display: inline-block;
+      margin-right: 5px;
+    }
   }
 
   .movies-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px 10px;
+
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
   }
 
   .movies-list__item {
-    opacity: 0.5;
-    &:hover {
-      opacity: 1;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      transition: transform 0.3s ease;
+    }
+
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: block;
+      top: 0;
+      background-color: rgba(65, 184,131 , 0.2);
+    }
+  }
+
+  .movies-list__item:hover {
+    img {
+      transform: scale(1.1);
+    }
+
+    &:after {
+      background-color: rgba(65, 184,131 , 0);
     }
   }
 </style>

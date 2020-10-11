@@ -1,6 +1,6 @@
 <template>
-    <button v-if="favorite" @click='favorite' :class="{ fav: type === 'addFavorite' }">
-      <font-awesome-icon :icon="['far', 'heart']" v-if="type === 'addFavorite'"/>
+    <button v-if="watchlist" @click='watchlist' :class="{ fav: type === 'addWatchlist' }">
+      <font-awesome-icon :icon="['far', 'star']" v-if="type === 'addWatchlist'"/>
         {{ text }}
     </button>
     <button v-else>
@@ -9,15 +9,14 @@
 </template>
 
 <script>
-const ADD_TO_FAVORITE = 'Add to Favorite'
-const REMOVE_TO_FAVORITE = 'Remove from Favorite'
-const WATCH_TRAILER = 'Trailer'
+const ADD_TO_WATCHLIST = 'Add to Watchlist'
+const REMOVE_TO_WATCHLIST = 'Remove from Watchlist'
 
 export default {
   name: 'Button',
   props: {
     type: String,
-    favorite: Function
+    watchlist: Function
   },
   data () {
     return {
@@ -35,28 +34,27 @@ export default {
   methods: {
     getType () {
       switch (this.type) {
-        case 'addFavorite':
-          this.text = ADD_TO_FAVORITE
+        case 'addWatchlist':
+          this.text = ADD_TO_WATCHLIST
           break
-        case 'removeFavorite':
-          this.text = REMOVE_TO_FAVORITE
+        case 'removeWatchlist':
+          this.text = REMOVE_TO_WATCHLIST
           break
-        default:
-          this.text = WATCH_TRAILER
       }
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   $red: #B71C1C;
+  $green: #41B883;
   button {
     border: none;
     background-color: none;
     padding: 10px 20px;
     text-transform: uppercase;
-    background: $red;
+    background: $green;
     color: white;
     border-radius: 20px;
   }

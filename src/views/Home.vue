@@ -1,7 +1,10 @@
 <template>
     <main>
       <!-- HEADER -->
-      <Featured :featured="featured" :toggleFavorite="toggleFavorite" />
+      <Featured
+        :featured="featured"
+        :toggleWatchlist="toggleWatchlist"
+        :showDetail="showDetail" />
 
       <!-- SEARCH FORM -->
       <Search @getResult="getResult" />
@@ -14,10 +17,10 @@
 
       <!--  MOVIE DETAIL -->
       <MovieDetail
-        v-show="isDetailShowed"
+        v-if="isDetailShowed"
         :detail="detail.data"
         :hideDetail="hideDetail"
-        :toggleFavorite="toggleFavorite" />
+        :toggleWatchlist="toggleWatchlist" />
     </main>
 </template>
 
@@ -28,7 +31,7 @@ import Featured from '../components/Featured'
 import MoviesList from '../components/MoviesList'
 import MovieDetail from '../components/MovieDetail'
 
-import Favorite from '../util/LocalStorage'
+import Watchlist from '../util/LocalStorage'
 
 const POPULAR_MOVIES_TITLE = 'Most Popular Movies'
 const SEARCH_TITLE = 'Search for'
@@ -67,8 +70,8 @@ export default {
       this.detail = { id: '', data: {} }
       this.isDetailShowed = false
     },
-    toggleFavorite (item) {
-      Favorite.toggle(item)
+    toggleWatchlist (item) {
+      Watchlist.toggle(item)
     },
     getResult (query) {
       if (query && query.length >= 2) {
@@ -105,5 +108,6 @@ export default {
 <style lang="scss">
   main {
     position: relative;
+    margin-top: 64px;
   }
 </style>
