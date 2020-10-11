@@ -57,8 +57,15 @@ export default {
     background: $green;
     color: white;
     border-radius: 20px;
+    font-weight: 700;
+    &:hover, &:focus {
+      background-color: #259462;
+    }
   }
   .fav {
     background: #19181A;
+    &:hover, &:focus {
+      background-color: #19181A;
+    }
   }
 </style>

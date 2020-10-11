@@ -16,16 +16,7 @@
 
 <script>
 export default {
-  name: 'Menu',
-  mounted () {
-    // document.addEventListener('scroll', () => {
-    //   if (window.scrollY === 0) {
-    //     document.querySelector('nav').classList.remove('scrolling')
-    //   } else {
-    //     document.querySelector('nav').classList.add('scrolling')
-    //   }
-    // })
-  }
+  name: 'Menu'
 }
 </script>
 
@@ -40,14 +31,8 @@ export default {
     width: 100%;
     z-index: 10;
     top: 0;
-    background-color: transparent;
-    background-color: #005AEA;
-    background-color: black;
-    background-image: #171717;
+    background: black;
     transition: background-color 0.3s ease-in-out;
-    &.scrolling, &.backgroundNav {
-      background-color: black;
-    }
   }
 
   .nav-wrapper {

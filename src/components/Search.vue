@@ -40,6 +40,7 @@ export default {
       font-size: clamp(1.6rem, 2vw, 1.9rem);
       background-color: #F7F8FB;
       color: #B0B4BF;
+      color: black;
       border-radius: 5px;
       border: none;
 

@@ -37,10 +37,7 @@ export default {
     this.data = Watchlist.getWatchlist()
   },
   mounted () {
-    document.querySelector('nav').classList.add('backgroundNav')
-  },
-  destroyed () {
-    document.querySelector('nav').classList.remove('backgroundNav')
+    document.documentElement.scrollTop = 0
   },
   methods: {
     showDetail (id) {

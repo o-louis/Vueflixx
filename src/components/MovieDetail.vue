@@ -139,6 +139,12 @@ export default {
     transform: translateY(100vh);
     transition: transform 0.2s ease;
     color: white;
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;  /* Safari and Chrome */
+    }
     &.slide-up {
       transform: translateY(0vh);
     }

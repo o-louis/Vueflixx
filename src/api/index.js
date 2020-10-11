@@ -1,8 +1,8 @@
 const API_KEY = `api_key=${process.env.VUE_APP_API_KEY}`
 
 export default {
-  async fetchPopularMovie () {
-    const POPULAR_MOVIES = `https://api.themoviedb.org/3/movie/popular?page=1&${API_KEY}`
+  async fetchPopularMovie (page) {
+    const POPULAR_MOVIES = `https://api.themoviedb.org/3/movie/popular?page=${page}&${API_KEY}`
     const response = await fetch(POPULAR_MOVIES)
     const data = await response.json()
     return data

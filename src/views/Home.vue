@@ -13,7 +13,9 @@
       <MoviesList
         :title="title"
         :data="dataMovies"
-        :showDetail="showDetail" />
+        :showDetail="showDetail"
+        :infiniteScroll="infiniteScroll"
+        :isScrollContinue="isScrollContinue" />
 
       <!--  MOVIE DETAIL -->
       <MovieDetail
@@ -50,7 +52,12 @@ export default {
       featured: {},
       dataMovies: [],
       isDetailShowed: false,
-      detail: { id: '', data: {} }
+      detail: { id: '', data: {} },
+
+      // Pagination scroll infinite
+      nbPage: 0,
+      page: 1,
+      isScrollContinue: false
     }
   },
   created () {
@@ -79,6 +86,9 @@ export default {
         API.fetchSearch(query)
           .then(data => {
             this.dataMovies = data.results
+          }).catch(err => {
+            this.dataMovies = []
+            console.log(err)
           })
       } else {
         this.loadPopularMovies()
@@ -86,10 +96,20 @@ export default {
     },
     loadPopularMovies () {
       this.title = POPULAR_MOVIES_TITLE
-      API.fetchPopularMovie()
+      API.fetchPopularMovie(this.page)
         .then(data => {
+          this.nbPage = data.total_pages
           this.dataMovies = data.results
         })
+    },
+    infiniteScroll () {
+      this.isScrollContinue = false
+      if (this.page + 1 <= this.nbPage) {
+        API.fetchPopularMovie(++this.page).then(data => {
+          this.isScrollContinue = true
+          this.dataMovies = [...this.dataMovies, ...data.results]
+        })
+      }
     }
   },
   watch: {
