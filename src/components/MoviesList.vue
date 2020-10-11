@@ -10,12 +10,13 @@
           </div>
         </div>
         <div v-if="isScrollContinue" class="movies__loading">Load more...</div>
-        <div v-if="data.length === 0" class="movies__error">Sorry, no results found</div>
+        <div v-if="data.length === 0 && infiniteScroll" class="movies__error">Sorry, no results found</div>
+        <div v-if="!infiniteScroll" class="movies__error"> You have added any content yet</div>
     </section>
 </template>
 
 <script>
-const IMG_BASE_URL = 'https://image.tmdb.org/t/p/original'
+const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w185'
 export default {
   name: 'MoviesList',
   props: {
