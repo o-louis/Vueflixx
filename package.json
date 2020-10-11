@@ -14,9 +14,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.0",
     "core-js": "^3.6.5",
     "v-lazy-image": "^1.4.0",
-    "v-video-embed": "^1.0.7",
     "vue": "^2.6.11",
-    "vue-carousel": "^0.18.0",
     "vue-router": "^3.4.6"
   },
   "devDependencies": {
