@@ -11,7 +11,7 @@
         </div>
         <div v-if="isScrollContinue" class="movies__loading">Load more...</div>
         <div v-if="data.length === 0 && infiniteScroll" class="movies__error">Sorry, no results found</div>
-        <div v-if="!infiniteScroll" class="movies__error"> You have added any content yet</div>
+        <div v-if="data.length === 0 && !infiniteScroll" class="movies__error"> You have added any content yet</div>
     </section>
 </template>
 
