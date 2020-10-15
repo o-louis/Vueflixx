@@ -82,6 +82,7 @@ export default {
     width: 100%;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 
     img {
       transition: transform 0.3s ease;

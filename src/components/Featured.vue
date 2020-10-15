@@ -43,7 +43,7 @@ export default {
       const backgroundURL = this.image(this.featured.backdrop_path)
       return {
         backgroundImage:
-        `linear-gradient( rgba(65, 184,131 , 0.3), rgba(0, 0, 0, 0) ),
+        `linear-gradient( rgba(65, 184,131 , 0.3), rgba(0, 0, 0, 1) ),
         url(${backgroundURL})`
       }
     },
